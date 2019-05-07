@@ -1,0 +1,31 @@
+#! /bin/bash
+
+name=$1
+
+host=$2
+
+urgency=$3
+
+type=$4
+
+ttime=$5
+
+curl -vvv -XPOST https://dfbgjvekwj.execute-api.us-east-2.amazonaws.com/inserttrigger/insertalert
+	-H 'Content-Type: application/json' \
+	
+	-d '{"subject":"PROBLEM for ZabbixAgent", 
+		"message": 
+		{ \
+	
+		"name":"'$name'", \
+	
+		"host":"'$host'", \
+	
+		"urgency":"'$urgency'", \
+	
+		"type":"'$type'", \
+	
+		"ttime":"'$ttime'" \
+
+		}
+	    }' > /tmp/zabbix_server.log

@@ -1,0 +1,14 @@
+#! /bin/bash
+rtime=$1
+name=$2
+host=$3
+curl -vvv -XPOST https://dfbgjvekwj.execute-api.us-east-2.amazonaws.com/inserttrigger/zabbixupdatealert \
+	-H 'Content-Type: application/json' \
+	-d '{"subject":"PROBLEM for ZabbixAgent", 
+		"message": 
+		{ \
+		"rtime":"'$rtime'", \
+		"name":"'$name'", \
+		"customer":"'$host'" \
+		}'
+	    }' > /tmp/zabbix_server.log
