@@ -1,0 +1,63 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "VisualEditor0",
+            "Effect": "Allow",
+            "Action": [
+                "logs:CreateLogStream",
+                "logs:PutLogEvents"
+            ],
+            "Resource": "arn:aws:logs:*:*:*"
+        },
+        {
+            "Sid": "VisualEditor1",
+            "Effect": "Allow",
+            "Action": [
+                "sns:DeleteTopic",
+                "sns:ListTopics",
+                "sns:Unsubscribe",
+                "sns:CreatePlatformEndpoint",
+                "sns:SetTopicAttributes",
+                "sns:OptInPhoneNumber",
+                "sns:CheckIfPhoneNumberIsOptedOut",
+                "sns:ListEndpointsByPlatformApplication",
+                "sns:SetEndpointAttributes",
+                "sns:Publish",
+                "sns:DeletePlatformApplication",
+                "sns:SetPlatformApplicationAttributes",
+                "sns:Subscribe",
+                "sns:ConfirmSubscription",
+                "sns:RemovePermission",
+                "sns:ListSubscriptionsByTopic",
+                "sns:GetTopicAttributes",
+                "sns:CreatePlatformApplication",
+                "sns:SetSMSAttributes",
+                "sns:CreateTopic",
+                "sns:GetPlatformApplicationAttributes",
+                "sns:GetSubscriptionAttributes",
+                "sns:ListSubscriptions",
+                "sns:AddPermission",
+                "sns:DeleteEndpoint",
+                "sns:ListPhoneNumbersOptedOut",
+                "sns:GetEndpointAttributes",
+                "sns:SetSubscriptionAttributes",
+                "sns:ListPlatformApplications",
+                "sns:GetSMSAttributes"
+            ],
+            "Resource": "arn:aws:sns:us-east-2:907745474917:zabbix"
+        },
+        {
+            "Sid": "VisualEditor2",
+            "Effect": "Allow",
+            "Action": "logs:CreateLogGroup",
+            "Resource": "arn:aws:logs:*:*:*"
+        },
+        {
+            "Sid": "VisualEditor3",
+            "Effect": "Allow",
+            "Action": "rds:*",
+            "Resource": "arn:aws:rds:us-east-1:907745474917:db:appychip"
+        }
+    ]
+}
