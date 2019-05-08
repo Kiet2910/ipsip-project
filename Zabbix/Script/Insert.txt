@@ -1,31 +1,9 @@
-#! /bin/bash
-
-name=$1
-
-host=$2
-
-urgency=$3
-
-type=$4
-
-ttime=$5
-
-curl -vvv -XPOST https://dfbgjvekwj.execute-api.us-east-2.amazonaws.com/inserttrigger/insertalert
-	-H 'Content-Type: application/json' \
-	
-	-d '{"subject":"PROBLEM for ZabbixAgent", 
-		"message": 
-		{ \
-	
-		"name":"'$name'", \
-	
-		"host":"'$host'", \
-	
-		"urgency":"'$urgency'", \
-	
-		"type":"'$type'", \
-	
-		"ttime":"'$ttime'" \
-
-		}
-	    }' > /tmp/zabbix_server.log
+subject=""subject": "$2""
+message="'message': $3"
+echo "{" > /tmp/sendapi
+echo "$subject" >> /tmp/sendapi
+echo "$message" >> /tmp/sendapi
+echo "'ttime': '2019-05-07 3:00:00'" >> /tmp/sendapi
+echo "}" >> /tmp/sendapi
+echo "}" >> /tmp/sendapi
+curl -vvv -XPOST https://dfbgjvekwj.execute-api.us-east-2.amazonaws.com/inserttrigger/insertalert -H 'Content-Type: application/json' -d "@/tmp/sendapi"
